@@ -64,7 +64,7 @@ export const challenges: Challenge[] = [
     id: "vue-performance-optimization",
     title: "Optimize Large List Rendering",
     framework: "Vue 3",
-    difficulty: DifficultyLevel.CHALLENGER,
+    difficulty: DifficultyLevel.HARD,
     type: ChallengeType.REFACTOR,
     time: "3-4 hours",
     description:
@@ -94,6 +94,18 @@ export const challenges: Challenge[] = [
     description:
       "Design and implement a plugin system that allows third-party extensions to the application.",
     tags: ["Architecture", "Design Patterns", "Extensibility"],
+    repoURL: "https://github.com/",
+  },
+  {
+    id: "django-auth-bug",
+    title: "Refactor API View using Django REST Framework",
+    framework: "Django",
+    difficulty: DifficultyLevel.CHALLENGER,
+    type: ChallengeType.REFACTOR,
+    time: "4-5 hours",
+    description:
+      "Refactor an API view to improve authentication and authorization using Django REST Framework.",
+    tags: ["Django", "REST Framework", "Authentication"],
     repoURL: "https://github.com/",
   },
 ];
