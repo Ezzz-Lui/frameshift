@@ -43,7 +43,7 @@ export default function GridChallenges() {
                   <p className="text-muted-foreground">{challenge.description}</p>
                 </CardContent>
                 <CardFooter className="flex gap-2">
-                  <Button variant="outline">View</Button>
+                  <Button variant="outline">View challenge</Button>
                   <Button variant="secondary">
                     <Share />
                     Share

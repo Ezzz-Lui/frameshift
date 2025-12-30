@@ -27,7 +27,7 @@ export const challenges: Challenge[] = [
   {
     id: "vue-state-management-bug",
     title: "Fix State Management Race Condition",
-    framework: "Vue 3",
+    framework: "React",
     difficulty: DifficultyLevel.CHALLENGER,
     type: ChallengeType.BUG_FIX,
     time: "2-3 hours",
