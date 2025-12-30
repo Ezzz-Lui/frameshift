@@ -50,7 +50,6 @@ export default function RootLayout({
         >
           <Nav />
 
-          {/* 👇 Esta parte es CLAVE */}
           <main className="grow">{children}</main>
 
           <FooterApp />
