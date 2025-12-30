@@ -7,7 +7,7 @@ import CardsShowcase from "./cards-showcase";
 export default function HeroSection() {
   return (
     <>
-      <main className="overflow-hidden">
+      <div className="overflow-hidden">
         <section className="relative">
           <div className="relative py-24 lg:py-28">
             <div className="mx-auto max-w-7xl px-6 md:px-12">
@@ -51,7 +51,7 @@ export default function HeroSection() {
           </div>
         </section>
         <CardsShowcase />
-      </main>
+      </div>
     </>
   );
 }
