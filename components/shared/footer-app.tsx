@@ -7,6 +7,7 @@ export default function FooterApp() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
             © 2025 Frameshift. Real challenges for real developers.
+            <br />
             <br /> By Luis Ramos.
           </p>
           <div className="flex items-center gap-6">
