@@ -3,33 +3,44 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "../ui/card";
 import { Badge } from "../ui/badge";
-import { FrameworkBadge, DifficultyBadge, TypeBadge } from "@/components/challenges/badges-usage";
-
+import {
+  FrameworkBadge,
+  DifficultyBadge,
+  TypeBadge,
+} from "@/components/challenges/badges-usage";
+import { Button } from "../ui/button";
+import { Share } from "lucide-react";
 
 const frameworkVariantColors: Record<string, string> = {
-    "vue 3": "vue",
-    "react": "react",
-    "next.js": "nextjs",
-    "django": "django",
-    "sveltekit": "sveltekit",
-    "nuxt.js": "nuxtjs",
-    "remix": "remix",
-    "astro": "astro",
-}
+  "vue 3": "vue",
+  react: "react",
+  "next.js": "nextjs",
+  django: "django",
+  sveltekit: "sveltekit",
+  "nuxt.js": "nuxtjs",
+  remix: "remix",
+  astro: "astro",
+};
 
 const difficultyVariantColors: Record<string, string> = {
-    "challenger": "challenger",
-    "hard": "destructive",
-    "medium": "secondary",
-    "easy": "default",
-}
+  challenger: "challenger",
+  hard: "destructive",
+  medium: "secondary",
+  easy: "default",
+};
 
-const getVariant = (value: string, variantMap: Record<string, string>, defaultVariant = "outline") => {
-  return (variantMap[value.toLowerCase()] || defaultVariant) as typeof frameworkVariantColors[keyof typeof frameworkVariantColors];
+const getVariant = (
+  value: string,
+  variantMap: Record<string, string>,
+  defaultVariant = "outline"
+) => {
+  return (variantMap[value.toLowerCase()] ||
+    defaultVariant) as (typeof frameworkVariantColors)[keyof typeof frameworkVariantColors];
 };
 
 export default function GridChallenges() {
@@ -49,16 +60,23 @@ export default function GridChallenges() {
             {challenges.map((challenge) => (
               <Card key={challenge.id} className="mb-4">
                 <CardHeader>
-                    <CardTitle>{challenge.title}</CardTitle>
-                    <CardDescription className="capitalize space-x-2">
-                        <FrameworkBadge value={challenge.framework} />
-                        <DifficultyBadge value={challenge.difficulty} />
-                        <TypeBadge value={challenge.type} />
-                    </CardDescription>
+                  <CardTitle>{challenge.title}</CardTitle>
+                  <CardDescription className="capitalize space-x-2">
+                    <FrameworkBadge value={challenge.framework} />
+                    <DifficultyBadge value={challenge.difficulty} />
+                    <TypeBadge value={challenge.type} />
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <p>{challenge.description}</p>
+                  <p>{challenge.description}</p>
                 </CardContent>
+                <CardFooter className="flex gap-2">
+                  <Button variant="outline">View</Button>
+                  <Button variant="secondary">
+                    <Share />
+                    Share
+                  </Button>
+                </CardFooter>
               </Card>
             ))}
           </div>
