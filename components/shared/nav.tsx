@@ -16,7 +16,7 @@ export function Nav() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-border bg-background/95 backdrop-blur-sm supports-backdrop-filter]:bg-background/60 w-full">
+    <header className="sticky top-0 z-50 border-b border-border bg-background backdrop-blur-sm supports-backdrop-filter]:bg-background/60 w-full">
       <div className="flex w-full h-18 items-center justify-between px-4 md:px-8">
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center">
