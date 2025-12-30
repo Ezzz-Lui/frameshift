@@ -7,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { Badge } from "../ui/badge";
 import {
   FrameworkBadge,
   DifficultyBadge,
@@ -15,33 +14,6 @@ import {
 } from "@/components/challenges/badges-usage";
 import { Button } from "../ui/button";
 import { Share } from "lucide-react";
-
-const frameworkVariantColors: Record<string, string> = {
-  "vue 3": "vue",
-  react: "react",
-  "next.js": "nextjs",
-  django: "django",
-  sveltekit: "sveltekit",
-  "nuxt.js": "nuxtjs",
-  remix: "remix",
-  astro: "astro",
-};
-
-const difficultyVariantColors: Record<string, string> = {
-  challenger: "challenger",
-  hard: "destructive",
-  medium: "secondary",
-  easy: "default",
-};
-
-const getVariant = (
-  value: string,
-  variantMap: Record<string, string>,
-  defaultVariant = "outline"
-) => {
-  return (variantMap[value.toLowerCase()] ||
-    defaultVariant) as (typeof frameworkVariantColors)[keyof typeof frameworkVariantColors];
-};
 
 export default function GridChallenges() {
   return (
@@ -56,12 +28,12 @@ export default function GridChallenges() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {challenges.map((challenge) => (
               <Card key={challenge.id} className="mb-4">
                 <CardHeader>
                   <CardTitle>{challenge.title}</CardTitle>
-                  <CardDescription className="capitalize space-x-2">
+                  <CardDescription className="capitalize space-x-2 pt-2">
                     <FrameworkBadge value={challenge.framework} />
                     <DifficultyBadge value={challenge.difficulty} />
                     <TypeBadge value={challenge.type} />

@@ -16,11 +16,11 @@ export function Nav() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-border bg-background/95 backdrop-blur-sm supports-backdrop-filter]:bg-background/60 mx-6">
-      <div className="container flex h-18 items-center justify-between mx-auto">
+    <header className="sticky top-0 z-50 border-border bg-background/95 backdrop-blur-sm supports-backdrop-filter]:bg-background/60 w-full">
+      <div className="flex w-full h-18 items-center justify-between px-4 md:px-8">
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="font-bold text-xl tracking-tight">Frameshift</span>
+          <Link href="/" className="flex items-center">
+            <span className="font-bold text-xl ">Frameshift</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             {links.map((link) => (
