@@ -25,7 +25,7 @@ export const cardShowcaseItems: CardShowcaseItem[] = [
     title: "Built for engineering teams",
     description:
       "Assess candidates on their ability to work with existing codebases and frameworks",
-    content: `Understand how developers approach refactoring and architectural decisions.`,
+    content: `Understand how developers approach refactoring and architectural decisions and evaluate code quality, maintainability, and adherence to framework conventions.`,
     linkHref: "/features",
     linkText: "Features",
   },
