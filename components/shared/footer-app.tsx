@@ -12,18 +12,6 @@ export default function FooterApp() {
           </p>
           <div className="flex items-center gap-6">
             <Link
-              href="/features"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Features
-            </Link>
-            <Link
-              href="/frameworks"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Frameworks
-            </Link>
-            <Link
               href="/challenges"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >

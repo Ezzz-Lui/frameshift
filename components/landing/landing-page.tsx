@@ -34,8 +34,9 @@ export default function HeroSection() {
                   algorithm problems. Just real code.
                 </p>
                 <p className="mx-auto mt-6 max-w-2xl text-wrap sm:hidden">
-                  Highly customizable components for building modern websites
-                  and applications, with your personal spark.
+                  Evaluate developers through realistic projects: bug fixing,
+                  feature implementation, and architecture decisions. No
+                  algorithm problems. Just real code.
                 </p>
 
                 <div className="mt-8">

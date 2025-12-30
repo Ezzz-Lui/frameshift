@@ -10,8 +10,6 @@ export function Nav() {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/features", label: "Features" },
-    { href: "/frameworks", label: "Frameworks" },
     { href: "/challenges", label: "Challenges" },
   ];
 
