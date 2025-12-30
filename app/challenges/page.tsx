@@ -51,7 +51,7 @@ export default function ChallengesContent() {
       <div className="p-4">
         <Card>
           <CardHeader>
-            <CardTitle>Browse Challenges</CardTitle>
+            <CardTitle className="text-xl">Browse Challenges</CardTitle>
             <CardDescription>
               Filter by framework, difficulty, and challenge type to find the
               right assessment.
@@ -60,7 +60,7 @@ export default function ChallengesContent() {
           <CardContent>
             <form>
               <FieldGroup>
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <Field>
                     <FieldLabel htmlFor="small-form-name">Search</FieldLabel>
                     <Input
@@ -128,7 +128,11 @@ export default function ChallengesContent() {
                         <ComboboxEmpty>No difficulties found.</ComboboxEmpty>
                         <ComboboxList>
                           {(item) => (
-                            <ComboboxItem key={item} value={item} disabled={item != "Easy" && item != "Medium"}>
+                            <ComboboxItem
+                              key={item}
+                              value={item}
+                              disabled={item != "Easy" && item != "Medium"}
+                            >
                               {item}
                             </ComboboxItem>
                           )}
