@@ -32,7 +32,7 @@ export default function GridChallenges() {
             {challenges.map((challenge) => (
               <Card key={challenge.id} className="mb-4">
                 <CardHeader>
-                  <CardTitle>{challenge.title}</CardTitle>
+                  <CardTitle className="font-bold">{challenge.title}</CardTitle>
                   <CardDescription className="capitalize space-x-2 pt-2">
                     <FrameworkBadge value={challenge.framework} />
                     <DifficultyBadge value={challenge.difficulty} />
@@ -40,7 +40,7 @@ export default function GridChallenges() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p>{challenge.description}</p>
+                  <p className="text-muted-foreground">{challenge.description}</p>
                 </CardContent>
                 <CardFooter className="flex gap-2">
                   <Button variant="outline">View</Button>

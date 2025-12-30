@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import { Nav } from "@/components/shared/nav";
 import FooterApp from "@/components/shared/footer-app";
+import { ViewTransition } from "react";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -43,18 +44,20 @@ export default function RootLayout({
         w-full
       `}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Nav />
+        <ViewTransition>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Nav />
 
-          <main className="grow">{children}</main>
+            <main className="grow">{children}</main>
 
-          <FooterApp />
-        </ThemeProvider>
+            <FooterApp />
+          </ThemeProvider>
+        </ViewTransition>
       </body>
     </html>
   );
