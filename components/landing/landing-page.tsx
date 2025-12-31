@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CardsShowcase from "./cards-showcase";
+import StackAvailable from "./stack-availble";
 
 export default function HeroSection() {
   return (
@@ -41,7 +42,7 @@ export default function HeroSection() {
 
                 <div className="mt-8">
                   <Button size="lg" asChild>
-                    <Link href="#">
+                    <Link href="/challenges" className="flex items-center gap-2">
                       <Rocket className="relative size-4" />
                       <span className="text-nowrap">Explore challenges</span>
                     </Link>
@@ -51,7 +52,8 @@ export default function HeroSection() {
             </div>
           </div>
         </section>
-        <CardsShowcase />
+        {/* <StackAvailable /> */}
+        {/* <CardsShowcase /> */}
       </div>
     </>
   );
