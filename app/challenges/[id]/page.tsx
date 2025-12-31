@@ -36,11 +36,11 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
           </Link>
         </Button>
       </div>
-      <div className="flex flex-row">
-        <div className="basis-3/4 mr-4">
-          <ChallengeDetailItem {...challenge}/>
+      <div>
+        <div>
+          <ChallengeDetailItem {...challenge} />
         </div>
-        <div className="basis-1/4">
+        <div className="mt-4">
           <SidebarChallenge {...challenge} />
         </div>
       </div>
