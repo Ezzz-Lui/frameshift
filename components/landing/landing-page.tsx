@@ -27,7 +27,10 @@ export default function HeroSection() {
                 </Link>
 
                 <h1 className="mt-8 text-3xl font-semibold md:text-5xl xl:text-5xl xl:leading-[1.125]">
-                  Technical challenges <br /> that mirror real development work
+                  Technical <span className="bg-linear-to-r from-neutral-400 via-neutral-50 to-neutral-400 bg-clip-text text-transparent">
+                    challenges
+                  </span>
+                  <br /> that mirror real development work
                 </h1>
                 <p className="mx-auto mt-8 hidden max-w-2xl text-wrap text-lg sm:block">
                   Evaluate developers through realistic projects: bug fixing,
@@ -42,7 +45,10 @@ export default function HeroSection() {
 
                 <div className="mt-8">
                   <Button size="lg" asChild>
-                    <Link href="/challenges" className="flex items-center gap-2">
+                    <Link
+                      href="/challenges"
+                      className="flex items-center gap-2"
+                    >
                       <Rocket className="relative size-4" />
                       <span className="text-nowrap">Explore challenges</span>
                     </Link>
