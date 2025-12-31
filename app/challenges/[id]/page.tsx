@@ -4,6 +4,7 @@ import ChallengeDetailItem from "@/components/challenges/challenge-detail";
 import { Button } from "@/components/ui/button";
 import { GitBranch, MoveLeft } from "lucide-react";
 import Link from "next/link";
+import SidebarChallenge from "@/components/challenges/challenge-sidebar";
 
 type ChallengePageProps = {
   params: Promise<{
@@ -35,8 +36,13 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
           </Link>
         </Button>
       </div>
-      <div className="">
-        <ChallengeDetailItem {...challenge} />
+      <div className="flex flex-row">
+        <div className="basis-3/4 mr-4">
+          <ChallengeDetailItem {...challenge}/>
+        </div>
+        <div className="basis-1/4">
+          <SidebarChallenge {...challenge} />
+        </div>
       </div>
     </div>
   );
