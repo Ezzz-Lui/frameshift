@@ -1,4 +1,3 @@
-import { Button } from "../ui/button";
 import {
   Card,
   CardContent,
@@ -132,9 +131,9 @@ export default function SearchSection() {
                   </Combobox>
                 </Field>
               </div>
-              <Field orientation="horizontal">
+              {/* <Field orientation="horizontal">
                 <Button type="submit">Search</Button>
-              </Field>
+              </Field> */}
             </FieldGroup>
           </form>
         </CardContent>
