@@ -5,7 +5,9 @@ export default function ChallengeDetailItem(challenge: Challenge) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{challenge.title}</CardTitle>
+        <CardTitle className="font-extrabold text-xl">
+            {challenge.title}
+        </CardTitle>
         <CardDescription>{challenge.description}</CardDescription>
       </CardHeader>
     </Card>
