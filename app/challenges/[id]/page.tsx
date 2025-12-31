@@ -2,7 +2,7 @@ import { getChallengeBySlug } from "@/data/challenges/challenges-showcase";
 import { notFound } from "next/navigation";
 import ChallengeDetailItem from "@/components/challenges/challenge-detail";
 import { Button } from "@/components/ui/button";
-import { MoveLeft } from "lucide-react";
+import { GitBranch, MoveLeft } from "lucide-react";
 import Link from "next/link";
 
 type ChallengePageProps = {
@@ -21,11 +21,17 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
 
   return (
     <div className="px-4 py-2">
-      <div className="py-2">
+      <div className="py-2 flex gap-2">
         <Button variant="outline" asChild>
           <Link href="/challenges">
             <MoveLeft />
             Back to challenges
+          </Link>
+        </Button>
+        <Button variant="secondary" asChild>
+          <Link href="/challenges">
+            <GitBranch />
+            Take Challenge
           </Link>
         </Button>
       </div>
