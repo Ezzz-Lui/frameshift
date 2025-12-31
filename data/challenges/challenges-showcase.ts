@@ -11,7 +11,7 @@ enum ChallengeType {
   REFACTOR = "refactor",
 }
 
-interface Challenge {
+export interface Challenge {
   id: string;
   title: string;
   framework: string;
