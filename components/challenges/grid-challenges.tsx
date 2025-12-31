@@ -14,6 +14,7 @@ import {
 } from "@/components/challenges/badges-usage";
 import { Button } from "../ui/button";
 import { Share } from "lucide-react";
+import Link from "next/link";
 
 export default function GridChallenges() {
   return (
@@ -40,10 +41,16 @@ export default function GridChallenges() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{challenge.description}</p>
+                  <p className="text-muted-foreground">
+                    {challenge.description}
+                  </p>
                 </CardContent>
                 <CardFooter className="flex gap-2">
-                  <Button variant="outline">View challenge</Button>
+                  <Button variant="outline" asChild>
+                    <Link href={`/challenges/${challenge.id}`}>
+                      View challenge
+                    </Link>
+                  </Button>
                   <Button variant="secondary">
                     <Share />
                     Share
