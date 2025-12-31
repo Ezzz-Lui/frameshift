@@ -109,3 +109,7 @@ export const challenges: Challenge[] = [
     repoURL: "https://github.com/",
   },
 ];
+
+export async function getChallengeBySlug(id: string) {
+  return challenges.find((c) => c.id === id) ?? null;
+}
