@@ -53,7 +53,7 @@ export default function RootLayout({
           >
             <Nav />
 
-            <main className="grow">{children}</main>
+            <main className="grow pt-16">{children}</main>
 
             <FooterApp />
           </ThemeProvider>

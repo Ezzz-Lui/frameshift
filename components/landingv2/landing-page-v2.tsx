@@ -12,14 +12,14 @@ import {
 
 export default function LandingPageV2() {
   return (
-    <div className="relative min-h-screen bg-black text-zinc-400 selection:bg-white/20 selection:text-white">
+    <div className="relative min-h-screen bg-black text-zinc-400 selection:bg-white/20 selection:text-white -mt-16">
       {/* Background Effects */}
       <GradientBackground />
       <GridLines />
       <VerticalLines />
 
-      {/* Main Content */}
-      <main className="z-10 pt-32 relative">
+      {/* Main Content - pt-24 accounts for fixed navbar */}
+      <main className="z-10 pt-24 relative">
         <HeroSection />
         <StatsSection />
         <FeaturesSection />
