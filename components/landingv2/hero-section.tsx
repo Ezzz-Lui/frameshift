@@ -43,7 +43,7 @@ export function HeroSection() {
 
       {/* Hero Dashboard Representation */}
       <RevealOnScroll delay="300">
-        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-t-xl overflow-hidden border-x border-t bg-[#050505] border-white/10">
+        <div className="relative w-full aspect-video md:aspect-21/9 rounded-t-xl overflow-hidden border-x border-t bg-[#050505] border-white/10">
           {/* Grid Background */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
 
@@ -82,9 +82,9 @@ export function HeroSection() {
 
               {/* Grid items */}
               <div className="grid grid-cols-3 gap-4">
-                <div className="h-32 rounded border bg-white/[0.02] border-white/5" />
-                <div className="h-32 rounded border bg-white/[0.02] border-white/5" />
-                <div className="h-32 rounded border bg-white/[0.02] border-white/5" />
+                <div className="h-32 rounded border bg-white/2 border-white/5" />
+                <div className="h-32 rounded border bg-white/2 border-white/5" />
+                <div className="h-32 rounded border bg-white/2 border-white/5" />
               </div>
             </div>
           </div>
