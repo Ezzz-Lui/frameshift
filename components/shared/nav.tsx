@@ -36,7 +36,9 @@ export function Nav() {
           <div
             className={cn(
               "h-8 w-8 rounded-lg flex items-center justify-center font-bold text-sm",
-              isLandingPage ? "bg-white text-black" : "bg-primary text-primary-foreground"
+              isLandingPage
+                ? "bg-white text-black"
+                : "bg-primary text-primary-foreground"
             )}
           >
             F
@@ -82,8 +84,7 @@ export function Nav() {
             size="sm"
             asChild
             className={cn(
-              isLandingPage &&
-                "text-zinc-400 hover:text-white hover:bg-white/5"
+              isLandingPage && "text-zinc-400 hover:text-white hover:bg-white/5"
             )}
           >
             <Link href="/login">Log in</Link>
@@ -92,8 +93,7 @@ export function Nav() {
             size="sm"
             asChild
             className={cn(
-              isLandingPage &&
-                "bg-white text-black hover:bg-zinc-200 border-0"
+              isLandingPage && "bg-white text-black hover:bg-zinc-200 border-0"
             )}
           >
             <Link href="/challenges">Get Started</Link>
