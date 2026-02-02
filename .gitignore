@@ -46,5 +46,6 @@ index.html
 /cursor
 .cursor/
 .agents/
-.vscode/
-.github/
+/.vscode/
+/.github/
+/supabase/
