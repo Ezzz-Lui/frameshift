@@ -1,3 +1,5 @@
+"use client";
+
 import type { Challenge } from "@/data/challenges/challenges-showcase";
 import {
   Card,
@@ -17,6 +19,7 @@ import {
   AlertCircle,
   Lightbulb,
 } from "lucide-react";
+import { ChallengeNotes } from "./challenge-notes";
 
 export default function ChallengeDetailItem(challenge: Challenge) {
   return (
@@ -132,6 +135,9 @@ export default function ChallengeDetailItem(challenge: Challenge) {
           </CardContent>
         </Card>
       )}
+
+      {/* Personal Notes */}
+      <ChallengeNotes challengeId={challenge.id} />
     </div>
   );
 }
