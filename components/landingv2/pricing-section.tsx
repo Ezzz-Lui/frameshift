@@ -18,40 +18,32 @@ const plans: PricingPlan[] = [
   {
     name: "Free",
     price: "$0",
-    period: "/mo",
-    description: "Perfect for beginners",
+    period: "",
+    description: "Completely free, forever",
     features: [
-      "Core Challenges",
+      "All Challenges Available",
+      "Personal Progress Tracking",
+      "Favorites & Notes",
       "Community Access",
-      "Basic Progress Tracking",
+      "No Limits or Restrictions",
     ],
-    buttonText: "Start Free",
+    buttonText: "Get Started",
   },
   {
-    name: "Pro",
-    price: "$12",
-    period: "/mo",
-    description: "For serious learners",
-    features: [
-      "Everything in Free",
-      "Advanced Challenges",
-      "AI Code Review",
-      "Priority Support",
-    ],
-    buttonText: "Upgrade Now",
-    highlighted: true,
-  },
-  {
-    name: "Team",
+    name: "Enterprise",
     price: "Custom",
-    description: "For organizations",
+    description: "For companies and teams",
     features: [
-      "Custom Challenge Tracks",
-      "Team Analytics",
-      "Dedicated Support",
+      "Custom Challenges",
+      "Real-time Collaborative Editor",
+      "Live Interview Mode",
+      "Team Analytics & Reporting",
       "SSO Integration",
+      "Dedicated Support",
+      "Onboarding & Training",
     ],
     buttonText: "Contact Sales",
+    highlighted: true,
   },
 ];
 
@@ -88,9 +80,12 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
                 </li>
               ))}
             </ul>
-            <button className="w-full py-3 rounded text-xs font-medium transition-colors bg-white text-black hover:bg-zinc-200">
+            <a
+              href={plan.name === "Enterprise" ? "/enterprise" : "/challenges"}
+              className="w-full py-3 rounded text-xs font-medium transition-colors bg-white text-black hover:bg-zinc-200 flex items-center justify-center"
+            >
               {plan.buttonText}
-            </button>
+            </a>
           </div>
         </div>
       </RevealOnScroll>
@@ -123,9 +118,12 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
             </li>
           ))}
         </ul>
-        <button className="w-full py-3 rounded border text-xs font-medium transition-colors border-white/10 text-white hover:bg-white/5">
+        <a
+          href={plan.name === "Enterprise" ? "/enterprise" : "/challenges"}
+          className="w-full py-3 rounded border text-xs font-medium transition-colors border-white/10 text-white hover:bg-white/5 flex items-center justify-center"
+        >
           {plan.buttonText}
-        </button>
+        </a>
       </SpotlightCard>
     </RevealOnScroll>
   );
@@ -147,13 +145,13 @@ export function PricingSection() {
           </RevealOnScroll>
           <RevealOnScroll delay="100">
             <p className="text-sm text-zinc-400">
-              Choose the plan that fits your learning journey.
+              Free for developers. Enterprise solutions for teams.
             </p>
           </RevealOnScroll>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {plans.map((plan) => (
             <PricingCard key={plan.name} plan={plan} />
           ))}
