@@ -1,5 +1,6 @@
 import { ArrowRight, Plus } from "lucide-react";
 import { RevealOnScroll } from "./reveal-on-scroll";
+import { Button } from "../ui/button";
 
 export function HeroSection() {
   return (
@@ -31,12 +32,12 @@ export function HeroSection() {
 
         <RevealOnScroll delay="300">
           <div className="flex items-center gap-4 mb-20">
-            <button className="h-10 px-6 rounded text-sm font-medium transition-colors flex items-center gap-2 bg-white text-black hover:bg-zinc-200">
+            <Button variant="default" className="h-10 px-6 rounded text-sm font-medium transition-colors flex items-center gap-2 bg-white text-black hover:bg-zinc-200">
               Start Practicing <ArrowRight className="w-4 h-4" />
-            </button>
-            <button className="h-10 px-6 rounded border text-sm font-medium transition-colors border-white/10 text-white hover:bg-white/5">
+            </Button>
+            <Button variant="outline" className="h-10 px-6 rounded border text-sm font-medium transition-colors border-white/10 text-white hover:bg-white/5">
               View Challenges
-            </button>
+            </Button>
           </div>
         </RevealOnScroll>
       </div>
