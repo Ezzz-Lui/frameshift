@@ -4,73 +4,99 @@ import { useState, useEffect, useCallback } from "react";
 import {
   type ChallengeProgress,
   type ChallengeStatus,
-  getStoredChallengeData,
-  toggleFavorite as toggleFavoriteStorage,
-  isFavorite as isFavoriteStorage,
-  updateProgress as updateProgressStorage,
-  getProgress as getProgressStorage,
-  addToViewed as addToViewedStorage,
-  setRating as setRatingStorage,
-  getRating as getRatingStorage,
 } from "@/lib/utils/challenge-storage";
+import { progressService } from "@/lib/services/progress.service";
+import { useAuth } from "./use-auth";
 
 export function useChallengeProgress(challengeId: string) {
+  const { user } = useAuth();
   const [isFav, setIsFav] = useState(false);
   const [progress, setProgress] = useState<ChallengeProgress | null>(null);
   const [rating, setRating] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setIsFav(isFavoriteStorage(challengeId));
-    setProgress(getProgressStorage(challengeId));
-    setRating(getRatingStorage(challengeId));
-    addToViewedStorage(challengeId);
-  }, [challengeId]);
+    const loadData = async () => {
+      setLoading(true);
+      const userId = user?.id;
 
-  const toggleFavorite = useCallback(() => {
-    const newState = toggleFavoriteStorage(challengeId);
+      const [favoriteResult, progressResult, ratingResult] = await Promise.all([
+        progressService.isFavorite(challengeId, userId),
+        progressService.getProgress(challengeId, userId),
+        progressService.getRating(challengeId, userId),
+      ]);
+
+      setIsFav(favoriteResult);
+      setProgress(progressResult);
+      setRating(ratingResult);
+      await progressService.addToViewed(challengeId, userId);
+      setLoading(false);
+    };
+
+    loadData();
+  }, [challengeId, user?.id]);
+
+  const toggleFavorite = useCallback(async () => {
+    const newState = await progressService.toggleFavorite(
+      challengeId,
+      user?.id
+    );
     setIsFav(newState);
     return newState;
-  }, [challengeId]);
+  }, [challengeId, user?.id]);
 
   const updateProgressStatus = useCallback(
-    (status: ChallengeStatus) => {
-      updateProgressStorage(challengeId, { status });
+    async (status: ChallengeStatus) => {
+      await progressService.updateProgress(
+        challengeId,
+        { status },
+        user?.id
+      );
       setProgress((prev) => ({ ...prev, status } as ChallengeProgress));
     },
-    [challengeId]
+    [challengeId, user?.id]
   );
 
   const updateTimeSpent = useCallback(
-    (seconds: number) => {
-      updateProgressStorage(challengeId, { timeSpent: seconds });
+    async (seconds: number) => {
+      await progressService.updateProgress(
+        challengeId,
+        { timeSpent: seconds },
+        user?.id
+      );
       setProgress((prev) => ({
         ...prev,
         timeSpent: seconds,
       } as ChallengeProgress));
     },
-    [challengeId]
+    [challengeId, user?.id]
   );
 
   const updateNotes = useCallback(
-    (notes: string) => {
-      updateProgressStorage(challengeId, { notes });
+    async (notes: string) => {
+      await progressService.updateProgress(
+        challengeId,
+        { notes },
+        user?.id
+      );
       setProgress((prev) => ({ ...prev, notes } as ChallengeProgress));
     },
-    [challengeId]
+    [challengeId, user?.id]
   );
 
   const rateChallenge = useCallback(
-    (newRating: number) => {
-      setRatingStorage(challengeId, newRating);
+    async (newRating: number) => {
+      await progressService.setRating(challengeId, newRating, user?.id);
       setRating(newRating);
     },
-    [challengeId]
+    [challengeId, user?.id]
   );
 
   return {
     isFavorite: isFav,
     progress,
     rating,
+    loading,
     toggleFavorite,
     updateProgressStatus,
     updateTimeSpent,
