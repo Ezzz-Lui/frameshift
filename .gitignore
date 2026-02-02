@@ -46,3 +46,5 @@ index.html
 /cursor
 .cursor/
 .agents/
+.vscode/
+.github/
