@@ -1,3 +1,5 @@
+"use client";
+
 import type { Challenge } from "@/data/challenges/challenges-showcase";
 import {
   Card,
@@ -11,14 +13,14 @@ import { Separator } from "../ui/separator";
 import {
   ExternalLink,
   GitBranch,
-  Copy,
-  Check,
   BookMarked,
   Users,
-  Trophy,
   Star,
 } from "lucide-react";
 import Link from "next/link";
+import { ChallengeActions } from "./challenge-actions";
+import { Timer } from "./timer";
+import { ChallengeNotes } from "./challenge-notes";
 
 export default function SidebarChallenge(challenge: Challenge) {
   return (
@@ -72,6 +74,15 @@ export default function SidebarChallenge(challenge: Challenge) {
           </div>
         </CardContent>
       </Card>
+
+      {/* Challenge Actions */}
+      <ChallengeActions
+        challengeId={challenge.id}
+        challengeTitle={challenge.title}
+      />
+
+      {/* Timer */}
+      <Timer challengeId={challenge.id} />
 
       {/* Resources Card */}
       {challenge.resourcesURL && challenge.resourcesURL.length > 0 && (
