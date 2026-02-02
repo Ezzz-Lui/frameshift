@@ -15,7 +15,7 @@ export function HeroSection() {
         <RevealOnScroll delay="100">
           <h1 className="text-5xl md:text-7xl font-medium tracking-tighter mb-8 leading-[1.05] text-white">
             Master any framework with <br />
-            <span className="bg-gradient-to-br from-white via-white/80 to-zinc-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-br from-white via-white/80 to-zinc-500 bg-clip-text text-transparent">
               real-world challenges.
             </span>
           </h1>
@@ -45,7 +45,7 @@ export function HeroSection() {
       <RevealOnScroll delay="300">
         <div className="relative w-full aspect-video md:aspect-21/9 rounded-t-xl overflow-hidden border-x border-t bg-[#050505] border-white/10">
           {/* Grid Background */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size:24px_24px" />
 
           {/* UI Mockup */}
           <div className="absolute top-10 left-10 right-10 bottom-0 bg-[#0A0A0A] border rounded-t-lg shadow-2xl overflow-hidden flex border-white/10">
