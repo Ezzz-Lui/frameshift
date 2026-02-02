@@ -72,30 +72,16 @@ export function Nav() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-colors",
-        isLandingPage
-          ? "bg-black/80 backdrop-blur-md border-b border-white/5"
-          : "bg-background/80 backdrop-blur-md border-b border-border"
+        "bg-background/80 backdrop-blur-md border-b border-border"
       )}
     >
       <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div
-            className={cn(
-              "h-8 w-8 rounded-lg flex items-center justify-center font-bold text-sm",
-              isLandingPage
-                ? "bg-white text-black"
-                : "bg-primary text-primary-foreground"
-            )}
-          >
+          <div className="h-8 w-8 rounded-lg flex items-center justify-center font-bold text-sm bg-primary text-primary-foreground">
             F
           </div>
-          <span
-            className={cn(
-              "font-semibold text-lg tracking-tight",
-              isLandingPage ? "text-white" : "text-foreground"
-            )}
-          >
+          <span className="font-semibold text-lg tracking-tight text-foreground">
             Frameshift
           </span>
         </Link>
@@ -108,15 +94,8 @@ export function Nav() {
               href={link.href}
               className={cn(
                 "px-4 py-2 text-sm font-medium rounded-lg transition-colors",
-                isLandingPage
-                  ? cn(
-                      "text-zinc-400 hover:text-white hover:bg-white/5",
-                      pathname === link.href && "text-white bg-white/5"
-                    )
-                  : cn(
-                      "text-muted-foreground hover:text-foreground hover:bg-muted",
-                      pathname === link.href && "text-foreground bg-muted"
-                    )
+                "text-muted-foreground hover:text-foreground hover:bg-muted",
+                pathname === link.href && "text-foreground bg-muted"
               )}
             >
               {link.label}
@@ -131,10 +110,7 @@ export function Nav() {
             variant="ghost"
             size="sm"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className={cn(
-              "h-9 w-9 p-0",
-              isLandingPage && "text-zinc-400 hover:text-white hover:bg-white/5"
-            )}
+            className="h-9 w-9 p-0"
             aria-label={mounted && theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             title={mounted && theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
           >
@@ -155,26 +131,14 @@ export function Nav() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button
-                  className={cn(
-                    "flex items-center gap-2 rounded-full transition-colors",
-                    isLandingPage
-                      ? "text-white hover:bg-white/10"
-                      : "hover:bg-muted"
-                  )}
+                  className="flex items-center gap-2 rounded-full transition-colors hover:bg-muted"
                 >
                   <Avatar size="sm">
-                    <AvatarFallback className={cn(
-                      isLandingPage
-                        ? "bg-white/10 text-white"
-                        : "bg-primary text-primary-foreground"
-                    )}>
+                    <AvatarFallback className="bg-primary text-primary-foreground">
                       {getUserInitials()}
                     </AvatarFallback>
                   </Avatar>
-                  <span className={cn(
-                    "text-sm font-medium hidden lg:block",
-                    isLandingPage ? "text-white" : "text-foreground"
-                  )}>
+                  <span className="text-sm font-medium hidden lg:block text-foreground">
                     {user.email?.split("@")[0]}
                   </span>
                 </button>
@@ -232,23 +196,10 @@ export function Nav() {
             </DropdownMenu>
           ) : (
             <>
-              <Button
-                variant="ghost"
-                size="sm"
-                asChild
-                className={cn(
-                  isLandingPage && "text-zinc-400 hover:text-white hover:bg-white/5"
-                )}
-              >
+              <Button variant="ghost" size="sm" asChild>
                 <Link href="/login">Log in</Link>
               </Button>
-              <Button
-                size="sm"
-                asChild
-                className={cn(
-                  isLandingPage && "bg-white text-black hover:bg-zinc-200 border-0"
-                )}
-              >
+              <Button size="sm" asChild>
                 <Link href="/signup">Sign up</Link>
               </Button>
             </>
@@ -257,12 +208,7 @@ export function Nav() {
 
         {/* Mobile Menu Button */}
         <button
-          className={cn(
-            "md:hidden p-2 rounded-lg transition-colors",
-            isLandingPage
-              ? "text-white hover:bg-white/5"
-              : "text-foreground hover:bg-muted"
-          )}
+          className="md:hidden p-2 rounded-lg transition-colors text-foreground hover:bg-muted"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? (
@@ -275,14 +221,7 @@ export function Nav() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div
-          className={cn(
-            "md:hidden border-t",
-            isLandingPage
-              ? "bg-black/95 backdrop-blur-md border-white/5"
-              : "bg-background/95 backdrop-blur-md border-border"
-          )}
-        >
+        <div className="md:hidden border-t bg-background/95 backdrop-blur-md border-border">
           <nav className="flex flex-col p-4 gap-1">
             {links.map((link) => (
               <Link
@@ -291,31 +230,19 @@ export function Nav() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
                   "px-4 py-3 text-sm font-medium rounded-lg transition-colors",
-                  isLandingPage
-                    ? cn(
-                        "text-zinc-400 hover:text-white hover:bg-white/5",
-                        pathname === link.href && "text-white bg-white/5"
-                      )
-                    : cn(
-                        "text-muted-foreground hover:text-foreground hover:bg-muted",
-                        pathname === link.href && "text-foreground bg-muted"
-                      )
+                  "text-muted-foreground hover:text-foreground hover:bg-muted",
+                  pathname === link.href && "text-foreground bg-muted"
                 )}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="border-t my-2 border-white/5" />
+            <div className="border-t my-2 border-border" />
             
             {/* Theme Toggle Mobile */}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className={cn(
-                "px-4 py-3 text-sm font-medium rounded-lg transition-colors flex items-center gap-2 w-full",
-                isLandingPage
-                  ? "text-zinc-400 hover:text-white hover:bg-white/5"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
-              )}
+              className="px-4 py-3 text-sm font-medium rounded-lg transition-colors flex items-center gap-2 w-full text-muted-foreground hover:text-foreground hover:bg-muted"
               aria-label={mounted && theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             >
               {mounted ? (
@@ -346,25 +273,15 @@ export function Nav() {
               <>
                 <div className="px-4 py-2 flex items-center gap-3">
                   <Avatar size="sm">
-                    <AvatarFallback className={cn(
-                      isLandingPage
-                        ? "bg-white/10 text-white"
-                        : "bg-primary text-primary-foreground"
-                    )}>
+                    <AvatarFallback className="bg-primary text-primary-foreground">
                       {getUserInitials()}
                     </AvatarFallback>
                   </Avatar>
                   <div className="flex-1 min-w-0">
-                    <p className={cn(
-                      "text-sm font-medium truncate",
-                      isLandingPage ? "text-white" : "text-foreground"
-                    )}>
+                    <p className="text-sm font-medium truncate text-foreground">
                       {user.email?.split("@")[0]}
                     </p>
-                    <p className={cn(
-                      "text-xs truncate",
-                      isLandingPage ? "text-zinc-400" : "text-muted-foreground"
-                    )}>
+                    <p className="text-xs truncate text-muted-foreground">
                       {user.email}
                     </p>
                   </div>
@@ -373,12 +290,7 @@ export function Nav() {
                   <Link
                     href="/dashboard/guest"
                     onClick={() => setMobileMenuOpen(false)}
-                    className={cn(
-                      "px-4 py-3 text-sm font-medium rounded-lg transition-colors",
-                      isLandingPage
-                        ? "text-zinc-400 hover:text-white hover:bg-white/5"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                    )}
+                    className="px-4 py-3 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted"
                   >
                     Guest Dashboard
                   </Link>
@@ -387,24 +299,14 @@ export function Nav() {
                     <Link
                       href="/dashboard"
                       onClick={() => setMobileMenuOpen(false)}
-                      className={cn(
-                        "px-4 py-3 text-sm font-medium rounded-lg transition-colors",
-                        isLandingPage
-                          ? "text-zinc-400 hover:text-white hover:bg-white/5"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                      )}
+                      className="px-4 py-3 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted"
                     >
                       My Dashboard
                     </Link>
                     <Link
                       href="/challenges"
                       onClick={() => setMobileMenuOpen(false)}
-                      className={cn(
-                        "px-4 py-3 text-sm font-medium rounded-lg transition-colors",
-                        isLandingPage
-                          ? "text-zinc-400 hover:text-white hover:bg-white/5"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                      )}
+                      className="px-4 py-3 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted"
                     >
                       My Progress
                     </Link>
@@ -412,12 +314,7 @@ export function Nav() {
                       <Link
                         href="/dashboard/enterprise"
                         onClick={() => setMobileMenuOpen(false)}
-                        className={cn(
-                          "px-4 py-3 text-sm font-medium rounded-lg transition-colors",
-                          isLandingPage
-                            ? "text-zinc-400 hover:text-white hover:bg-white/5"
-                            : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                        )}
+                        className="px-4 py-3 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted"
                       >
                         Enterprise Dashboard
                       </Link>
@@ -429,12 +326,7 @@ export function Nav() {
                     handleSignOut();
                     setMobileMenuOpen(false);
                   }}
-                  className={cn(
-                    "px-4 py-3 text-sm font-medium rounded-lg text-left w-full transition-colors text-destructive",
-                    isLandingPage
-                      ? "hover:bg-white/5"
-                      : "hover:bg-muted"
-                  )}
+                  className="px-4 py-3 text-sm font-medium rounded-lg text-left w-full transition-colors text-destructive hover:bg-muted"
                 >
                   Log out
                 </button>
@@ -444,24 +336,14 @@ export function Nav() {
                 <Link
                   href="/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className={cn(
-                    "px-4 py-3 text-sm font-medium rounded-lg transition-colors",
-                    isLandingPage
-                      ? "text-zinc-400 hover:text-white hover:bg-white/5"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  )}
+                  className="px-4 py-3 text-sm font-medium rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted"
                 >
                   Log in
                 </Link>
                 <Link
                   href="/signup"
                   onClick={() => setMobileMenuOpen(false)}
-                  className={cn(
-                    "px-4 py-3 text-sm font-medium rounded-lg text-center transition-colors",
-                    isLandingPage
-                      ? "bg-white text-black hover:bg-zinc-200"
-                      : "bg-primary text-primary-foreground hover:bg-primary/90"
-                  )}
+                  className="px-4 py-3 text-sm font-medium rounded-lg text-center transition-colors bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   Sign up
                 </Link>

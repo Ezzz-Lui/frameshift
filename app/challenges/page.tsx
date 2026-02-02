@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function ChallengesContent() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 py-12">
       <div className="container mx-auto px-4 max-w-7xl">
         <Tabs defaultValue="challenges" className="w-full">
           <TabsList className="grid w-full grid-cols-2 max-w-md">

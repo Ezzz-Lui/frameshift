@@ -70,17 +70,17 @@ const useCases: UseCase[] = [
 
 export function UseCasesSection() {
   return (
-    <section className="py-32 border-b relative z-10 border-white/5">
+    <section className="py-32 border-b relative z-10 border-border">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <RevealOnScroll>
-            <h2 className="text-3xl font-medium mb-4 text-white">
+            <h2 className="text-3xl font-medium mb-4 text-foreground">
               Built for Every Team Need
             </h2>
           </RevealOnScroll>
           <RevealOnScroll delay="100">
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-muted-foreground">
               From hiring to training, FrameShift Enterprise adapts to your
               workflow.
             </p>
@@ -91,23 +91,23 @@ export function UseCasesSection() {
         <div className="grid md:grid-cols-2 gap-6">
           {useCases.map((useCase, index) => (
             <RevealOnScroll key={useCase.title} delay="300">
-              <SpotlightCard className="h-full border rounded-xl p-8 flex flex-col border-white/10">
-                <div className="w-12 h-12 rounded-lg border flex items-center justify-center mb-6 border-white/10 bg-white/5 text-white">
+              <SpotlightCard className="h-full border rounded-xl p-8 flex flex-col border-border bg-card">
+                <div className="w-12 h-12 rounded-lg border flex items-center justify-center mb-6 border-border bg-muted text-foreground">
                   {useCase.icon}
                 </div>
-                <h3 className="text-xl font-medium mb-3 text-white">
+                <h3 className="text-xl font-medium mb-3 text-foreground">
                   {useCase.title}
                 </h3>
-                <p className="text-sm text-zinc-400 mb-6 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                   {useCase.description}
                 </p>
                 <ul className="space-y-2 flex-1">
                   {useCase.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-center gap-2 text-xs text-zinc-300"
+                      className="flex items-center gap-2 text-xs text-foreground"
                     >
-                      <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                       {feature}
                     </li>
                   ))}

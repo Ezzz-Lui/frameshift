@@ -14,8 +14,8 @@ const stats: StatItem[] = [
 
 export function StatsSection() {
   return (
-    <section className="border-b relative z-10 border-white/5 bg-black">
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-white/5">
+    <section className="border-b relative z-10 border-border bg-muted/30">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
         {stats.map((stat, index) => (
           <RevealOnScroll
             key={stat.label}
@@ -30,10 +30,10 @@ export function StatsSection() {
             }
           >
             <div className="p-8 text-center">
-              <div className="text-2xl font-semibold mb-1 text-white">
+              <div className="text-2xl font-semibold mb-1 text-foreground">
                 {stat.value}
               </div>
-              <div className="text-xs text-zinc-500 uppercase tracking-wider">
+              <div className="text-xs text-muted-foreground uppercase tracking-wider">
                 {stat.label}
               </div>
             </div>

@@ -7,22 +7,22 @@ import { Button } from "@/components/ui/button";
 
 export function EnterpriseHero() {
   return (
-    <section className="pt-24 pb-20 border-b relative z-10 border-white/5">
+    <section className="pt-24 pb-20 border-b relative z-10 border-border">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto">
           <RevealOnScroll>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-8 border-white/10 bg-white/5">
-              <Building2 className="w-4 h-4 text-white" />
-              <span className="text-xs text-white">Enterprise Solutions</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-8 border-border bg-muted">
+              <Building2 className="w-4 h-4 text-foreground" />
+              <span className="text-xs text-foreground">Enterprise Solutions</span>
             </div>
           </RevealOnScroll>
           <RevealOnScroll delay="100">
-            <h1 className="text-5xl md:text-6xl font-medium mb-6 text-white">
+            <h1 className="text-5xl md:text-6xl font-medium mb-6 text-foreground">
               Build Better Tech Teams
             </h1>
           </RevealOnScroll>
           <RevealOnScroll delay="200">
-            <p className="text-lg text-zinc-400 mb-12 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
               Empower your technical interviews, onboard new developers, and
               train your team with custom challenges and real-time collaborative
               coding.
@@ -30,11 +30,7 @@ export function EnterpriseHero() {
           </RevealOnScroll>
           <RevealOnScroll delay="300">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                asChild
-                className="bg-white text-black hover:bg-zinc-200"
-              >
+              <Button size="lg" asChild>
                 <Link href="#contact">
                   Schedule a Demo
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -51,40 +47,40 @@ export function EnterpriseHero() {
         <RevealOnScroll delay="300">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="w-12 h-12 rounded-lg border flex items-center justify-center mx-auto mb-4 border-white/10 bg-white/5">
-                <Users className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-lg border flex items-center justify-center mx-auto mb-4 border-border bg-muted">
+                <Users className="w-6 h-6 text-foreground" />
               </div>
-              <div className="text-2xl font-medium mb-1 text-white">
+              <div className="text-2xl font-medium mb-1 text-foreground">
                 Tech Teams
               </div>
-              <p className="text-xs text-zinc-500">For engineering departments</p>
+              <p className="text-xs text-muted-foreground">For engineering departments</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 rounded-lg border flex items-center justify-center mx-auto mb-4 border-white/10 bg-white/5">
-                <Briefcase className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-lg border flex items-center justify-center mx-auto mb-4 border-border bg-muted">
+                <Briefcase className="w-6 h-6 text-foreground" />
               </div>
-              <div className="text-2xl font-medium mb-1 text-white">
+              <div className="text-2xl font-medium mb-1 text-foreground">
                 Interviews
               </div>
-              <p className="text-xs text-zinc-500">Live coding assessments</p>
+              <p className="text-xs text-muted-foreground">Live coding assessments</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 rounded-lg border flex items-center justify-center mx-auto mb-4 border-white/10 bg-white/5">
-                <Code className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-lg border flex items-center justify-center mx-auto mb-4 border-border bg-muted">
+                <Code className="w-6 h-6 text-foreground" />
               </div>
-              <div className="text-2xl font-medium mb-1 text-white">
+              <div className="text-2xl font-medium mb-1 text-foreground">
                 Custom Challenges
               </div>
-              <p className="text-xs text-zinc-500">Tailored to your stack</p>
+              <p className="text-xs text-muted-foreground">Tailored to your stack</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 rounded-lg border flex items-center justify-center mx-auto mb-4 border-white/10 bg-white/5">
-                <Building2 className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-lg border flex items-center justify-center mx-auto mb-4 border-border bg-muted">
+                <Building2 className="w-6 h-6 text-foreground" />
               </div>
-              <div className="text-2xl font-medium mb-1 text-white">
+              <div className="text-2xl font-medium mb-1 text-foreground">
                 Enterprise
               </div>
-              <p className="text-xs text-zinc-500">SSO & security</p>
+              <p className="text-xs text-muted-foreground">SSO & security</p>
             </div>
           </div>
         </RevealOnScroll>

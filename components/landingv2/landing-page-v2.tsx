@@ -12,7 +12,7 @@ import {
 
 export default function LandingPageV2() {
   return (
-    <div className="relative min-h-screen bg-black text-zinc-400 selection:bg-white/20 selection:text-white -mt-16">
+    <div className="relative min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-foreground -mt-16">
       {/* Background Effects */}
       <GradientBackground />
       <GridLines />

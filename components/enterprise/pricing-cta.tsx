@@ -8,16 +8,16 @@ import Link from "next/link";
 
 export function PricingCTA() {
   return (
-    <section id="contact" className="py-32 border-b relative z-10 border-white/5">
+    <section id="contact" className="py-32 border-b relative z-10 border-border">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           {/* Pricing Info */}
           <RevealOnScroll>
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-medium mb-4 text-white">
+              <h2 className="text-3xl font-medium mb-4 text-foreground">
                 Custom Pricing for Your Team
               </h2>
-              <p className="text-sm text-zinc-400 mb-8 max-w-2xl mx-auto">
+              <p className="text-sm text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Enterprise pricing is tailored to your team size, needs, and
                 requirements. Contact us to discuss your specific use case.
               </p>
@@ -26,10 +26,10 @@ export function PricingCTA() {
 
           {/* Pricing Card */}
           <RevealOnScroll delay="100">
-            <SpotlightCard className="border rounded-xl p-8 md:p-12 border-white/10">
+            <SpotlightCard className="border rounded-xl p-8 md:p-12 border-border bg-card">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-2xl font-medium mb-6 text-white">
+                  <h3 className="text-2xl font-medium mb-6 text-foreground">
                     What's Included
                   </h3>
                   <ul className="space-y-4">
@@ -45,26 +45,26 @@ export function PricingCTA() {
                     ].map((feature) => (
                       <li
                         key={feature}
-                        className="flex items-center gap-3 text-sm text-zinc-300"
+                        className="flex items-center gap-3 text-sm text-foreground"
                       >
-                        <Check className="w-4 h-4 text-white shrink-0" />
+                        <Check className="w-4 h-4 text-primary shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-medium mb-6 text-white">
+                  <h3 className="text-2xl font-medium mb-6 text-foreground">
                     Get Started
                   </h3>
-                  <p className="text-sm text-zinc-400 mb-6">
+                  <p className="text-sm text-muted-foreground mb-6">
                     Schedule a demo to see FrameShift Enterprise in action and
                     discuss how it can fit your team's needs.
                   </p>
                   <div className="space-y-3">
                     <Button
                       size="lg"
-                      className="w-full bg-white text-black hover:bg-zinc-200"
+                      className="w-full"
                       asChild
                     >
                       <a href="mailto:sales@frameshift.dev">
@@ -84,11 +84,11 @@ export function PricingCTA() {
                       </a>
                     </Button>
                   </div>
-                  <p className="text-xs text-zinc-500 mt-6">
+                  <p className="text-xs text-muted-foreground mt-6">
                     Or explore our{" "}
                     <Link
                       href="/challenges"
-                      className="text-white hover:underline"
+                      className="text-primary hover:underline"
                     >
                       free challenges
                     </Link>{" "}

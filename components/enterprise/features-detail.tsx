@@ -35,22 +35,22 @@ function FeatureBlock({
     <div
       className={`p-10 md:p-16 flex flex-col justify-between ${
         reversed ? "md:border-l" : "md:border-r"
-      } border-b md:border-b-0 relative backdrop-blur-sm border-white/5 bg-black/50`}
+      } border-b md:border-b-0 relative backdrop-blur-sm border-border bg-card/50`}
     >
       <div>
         <span
           className={`text-6xl md:text-8xl font-medium font-mono select-none absolute top-6 ${
             reversed ? "right-6" : "left-6"
-          } text-white/5`}
+          } text-muted-foreground/20`}
         >
           {number}
         </span>
         <div className="relative pt-12">
-          <div className="w-10 h-10 rounded border flex items-center justify-center mb-6 border-white/10 bg-white/5 text-white">
+          <div className="w-10 h-10 rounded border flex items-center justify-center mb-6 border-border bg-muted text-foreground">
             {icon}
           </div>
-          <h3 className="text-2xl font-medium mb-4 text-white">{title}</h3>
-          <p className="leading-relaxed text-sm max-w-sm text-zinc-400 mb-6">
+          <h3 className="text-2xl font-medium mb-4 text-foreground">{title}</h3>
+          <p className="leading-relaxed text-sm max-w-sm text-muted-foreground mb-6">
             {description}
           </p>
 
@@ -59,9 +59,9 @@ function FeatureBlock({
               {features.map((feature) => (
                 <li
                   key={feature}
-                  className="flex items-center gap-3 text-sm text-zinc-300"
+                  className="flex items-center gap-3 text-sm text-foreground"
                 >
-                  <Check className="w-4 h-4 text-white" />
+                  <Check className="w-4 h-4 text-primary" />
                   {feature}
                 </li>
               ))}
@@ -73,14 +73,14 @@ function FeatureBlock({
   );
 
   const visualSection = (
-    <div className="p-10 flex items-center justify-center bg-[#050505] relative overflow-hidden group-hover:opacity-100">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 from-white/5" />
+    <div className="p-10 flex items-center justify-center bg-muted/30 relative overflow-hidden group-hover:opacity-100">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 from-primary/5" />
       {visual}
     </div>
   );
 
   return (
-    <div className="group border-b grid md:grid-cols-2 min-h-[500px] border-white/5">
+    <div className="group border-b grid md:grid-cols-2 min-h-[500px] border-border">
       {reversed ? (
         <>
           <div className="order-2 md:order-1">{visualSection}</div>
@@ -99,29 +99,29 @@ function FeatureBlock({
 // Visual Components
 function CustomChallengesVisual() {
   return (
-    <SpotlightCard className="w-full max-w-md aspect-[4/3] rounded-xl border p-6 flex flex-col gap-4 border-white/10">
-      <div className="flex items-center gap-3 border-b pb-4 border-white/5">
-        <div className="w-8 h-8 rounded-full bg-white/10" />
+    <SpotlightCard className="w-full max-w-md aspect-[4/3] rounded-xl border p-6 flex flex-col gap-4 border-border bg-card">
+      <div className="flex items-center gap-3 border-b pb-4 border-border">
+        <div className="w-8 h-8 rounded-full bg-muted" />
         <div className="flex-1">
-          <div className="h-2 rounded w-24 mb-2 bg-white/10" />
-          <div className="h-2 rounded w-16 bg-white/5" />
+          <div className="h-2 rounded w-24 mb-2 bg-muted" />
+          <div className="h-2 rounded w-16 bg-muted/50" />
         </div>
       </div>
       <div className="space-y-2 flex-1">
-        <div className="p-3 rounded border bg-white/[0.02] border-white/5">
-          <div className="h-2 rounded w-3/4 mb-2 bg-white/10" />
-          <div className="h-2 rounded w-1/2 bg-white/10" />
+        <div className="p-3 rounded border bg-muted/30 border-border">
+          <div className="h-2 rounded w-3/4 mb-2 bg-muted" />
+          <div className="h-2 rounded w-1/2 bg-muted" />
         </div>
-        <div className="p-3 rounded border bg-white/[0.02] border-white/5">
-          <div className="h-2 rounded w-2/3 mb-2 bg-white/10" />
-          <div className="h-2 rounded w-1/3 bg-white/10" />
+        <div className="p-3 rounded border bg-muted/30 border-border">
+          <div className="h-2 rounded w-2/3 mb-2 bg-muted" />
+          <div className="h-2 rounded w-1/3 bg-muted" />
         </div>
       </div>
       <div className="flex gap-2">
-        <div className="px-3 py-1 rounded text-xs border bg-white/5 border-white/10 text-zinc-300">
+        <div className="px-3 py-1 rounded text-xs border bg-muted border-border text-foreground">
           React
         </div>
-        <div className="px-3 py-1 rounded text-xs border bg-white/5 border-white/10 text-zinc-300">
+        <div className="px-3 py-1 rounded text-xs border bg-muted border-border text-foreground">
           TypeScript
         </div>
       </div>
@@ -132,31 +132,31 @@ function CustomChallengesVisual() {
 function RealTimeEditorVisual() {
   return (
     <div className="w-full max-w-2xl">
-      <SpotlightCard className="rounded-xl border p-4 flex flex-col gap-3 border-white/10">
-        <div className="flex items-center justify-between border-b pb-3 border-white/5">
+      <SpotlightCard className="rounded-xl border p-4 flex flex-col gap-3 border-border bg-card">
+        <div className="flex items-center justify-between border-b pb-3 border-border">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-green-500" />
-            <span className="text-xs text-zinc-400">Live Session</span>
+            <span className="text-xs text-muted-foreground">Live Session</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-white/10" />
-            <div className="w-6 h-6 rounded-full bg-white/10" />
+            <div className="w-6 h-6 rounded-full bg-muted" />
+            <div className="w-6 h-6 rounded-full bg-muted" />
           </div>
         </div>
-        <div className="bg-[#0a0a0a] rounded border border-white/5 p-4 font-mono text-xs">
-          <div className="text-zinc-500 mb-2">// Interviewer and Candidate</div>
-          <div className="text-white">
+        <div className="bg-muted/30 rounded border border-border p-4 font-mono text-xs">
+          <div className="text-muted-foreground mb-2">// Interviewer and Candidate</div>
+          <div className="text-foreground">
             <div className="mb-1">
-              <span className="text-blue-400">function</span>{" "}
-              <span className="text-yellow-400">solveChallenge</span>
-              <span className="text-white">()</span> {"{"}
+              <span className="text-blue-500 dark:text-blue-400">function</span>{" "}
+              <span className="text-yellow-600 dark:text-yellow-400">solveChallenge</span>
+              <span className="text-foreground">()</span> {"{"}
             </div>
-            <div className="ml-4 text-green-400">// Real-time collaboration</div>
-            <div className="ml-4 text-white">...</div>
-            <div className="text-white">{"}"}</div>
+            <div className="ml-4 text-green-600 dark:text-green-400">// Real-time collaboration</div>
+            <div className="ml-4 text-foreground">...</div>
+            <div className="text-foreground">{"}"}</div>
           </div>
         </div>
-        <div className="flex items-center gap-2 text-xs text-zinc-500">
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <Monitor className="w-3 h-3" />
           <span>2 participants • Live</span>
         </div>
@@ -168,10 +168,10 @@ function RealTimeEditorVisual() {
 function AnalyticsVisual() {
   return (
     <div className="w-full max-w-md">
-      <SpotlightCard className="rounded-xl border p-6 flex flex-col gap-4 border-white/10">
+      <SpotlightCard className="rounded-xl border p-6 flex flex-col gap-4 border-border bg-card">
         <div className="flex items-center justify-between">
-          <h4 className="text-sm font-medium text-white">Team Performance</h4>
-          <BarChart3 className="w-4 h-4 text-white opacity-50" />
+          <h4 className="text-sm font-medium text-foreground">Team Performance</h4>
+          <BarChart3 className="w-4 h-4 text-foreground opacity-50" />
         </div>
         <div className="space-y-3">
           {[
@@ -181,12 +181,12 @@ function AnalyticsVisual() {
           ].map((item) => (
             <div key={item.label}>
               <div className="flex justify-between text-xs mb-1">
-                <span className="text-zinc-300">{item.label}</span>
-                <span className="text-white">{item.value}%</span>
+                <span className="text-foreground">{item.label}</span>
+                <span className="text-foreground">{item.value}%</span>
               </div>
-              <div className="h-2 rounded-full bg-white/5 overflow-hidden">
+              <div className="h-2 rounded-full bg-muted overflow-hidden">
                 <div
-                  className="h-full bg-white/20 rounded-full"
+                  className="h-full bg-primary rounded-full"
                   style={{ width: `${item.value}%` }}
                 />
               </div>
@@ -201,17 +201,17 @@ function AnalyticsVisual() {
 function SecurityVisual() {
   return (
     <div className="grid grid-cols-2 gap-4 w-64">
-      <SpotlightCard className="h-24 rounded border flex flex-col items-center justify-center gap-2 border-white/10">
-        <Shield className="w-6 h-6 text-white opacity-50" />
-        <span className="text-[10px] text-zinc-500">SSO</span>
+      <SpotlightCard className="h-24 rounded border flex flex-col items-center justify-center gap-2 border-border bg-card">
+        <Shield className="w-6 h-6 text-foreground opacity-50" />
+        <span className="text-[10px] text-muted-foreground">SSO</span>
       </SpotlightCard>
-      <SpotlightCard className="h-24 rounded border flex flex-col items-center justify-center gap-2 border-white/10">
-        <Users className="w-6 h-6 text-white opacity-50" />
-        <span className="text-[10px] text-zinc-500">RBAC</span>
+      <SpotlightCard className="h-24 rounded border flex flex-col items-center justify-center gap-2 border-border bg-card">
+        <Users className="w-6 h-6 text-foreground opacity-50" />
+        <span className="text-[10px] text-muted-foreground">RBAC</span>
       </SpotlightCard>
-      <SpotlightCard className="col-span-2 h-24 rounded border flex flex-col items-center justify-center gap-2 border-white/10">
-        <FileCode className="w-6 h-6 text-white opacity-50" />
-        <span className="text-[10px] text-zinc-500">Audit Logs</span>
+      <SpotlightCard className="col-span-2 h-24 rounded border flex flex-col items-center justify-center gap-2 border-border bg-card">
+        <FileCode className="w-6 h-6 text-foreground opacity-50" />
+        <span className="text-[10px] text-muted-foreground">Audit Logs</span>
       </SpotlightCard>
     </div>
   );
@@ -294,15 +294,15 @@ export function FeaturesDetail() {
   ];
 
   return (
-    <section id="features" className="max-w-7xl mx-auto border-x relative z-10 border-white/5">
+    <section id="features" className="max-w-7xl mx-auto border-x relative z-10 border-border">
       <div className="text-center max-w-2xl mx-auto py-16 px-6">
         <RevealOnScroll>
-          <h2 className="text-3xl font-medium mb-4 text-white">
+          <h2 className="text-3xl font-medium mb-4 text-foreground">
             Enterprise Features
           </h2>
         </RevealOnScroll>
         <RevealOnScroll delay="100">
-          <p className="text-sm text-zinc-400">
+          <p className="text-sm text-muted-foreground">
             Everything you need to build, assess, and grow your tech team.
           </p>
         </RevealOnScroll>
