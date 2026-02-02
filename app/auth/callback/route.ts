@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
+import { getBaseUrl } from "@/lib/utils/urls";
 
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
@@ -12,5 +13,7 @@ export async function GET(request: Request) {
   }
 
   // URL to redirect to after sign in process completes
-  return NextResponse.redirect(`${origin}/challenges`);
+  // Use the request origin to handle both localhost and Vercel previews correctly
+  const redirectUrl = `${origin}/challenges`;
+  return NextResponse.redirect(redirectUrl);
 }
