@@ -151,3 +151,13 @@ export function getStats() {
     viewed: data.viewed.length,
   };
 }
+
+export function clearAll(): void {
+  if (typeof window === "undefined") return;
+
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (error) {
+    console.error("Error clearing challenge data:", error);
+  }
+}
