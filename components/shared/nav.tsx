@@ -4,8 +4,9 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User, LogOut, BarChart3, Settings } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, User, LogOut, BarChart3, Settings, Moon, Sun } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { useAuth } from "@/lib/hooks/use-auth";
 import { useUserProfile } from "@/lib/hooks/use-user-profile";
 import {
@@ -23,7 +24,14 @@ export function Nav() {
   const router = useRouter();
   const { user, loading: authLoading, signOut } = useAuth();
   const { isEnterprise, isGuest, loading: profileLoading } = useUserProfile();
+  const { theme, setTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Check if we're on the landing page (dark themed)
   const isLandingPage = pathname === "/";
@@ -118,6 +126,29 @@ export function Nav() {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
+          {/* Theme Toggle */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className={cn(
+              "h-9 w-9 p-0",
+              isLandingPage && "text-zinc-400 hover:text-white hover:bg-white/5"
+            )}
+            aria-label={mounted && theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            title={mounted && theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {mounted ? (
+              theme === "dark" ? (
+                <Sun className="h-4 w-4" />
+              ) : (
+                <Moon className="h-4 w-4" />
+              )
+            ) : (
+              <Sun className="h-4 w-4" />
+            )}
+          </Button>
+          
           {authLoading || profileLoading ? (
             <div className="w-8 h-8 rounded-full bg-muted animate-pulse" />
           ) : user ? (
@@ -275,6 +306,38 @@ export function Nav() {
               </Link>
             ))}
             <div className="border-t my-2 border-white/5" />
+            
+            {/* Theme Toggle Mobile */}
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className={cn(
+                "px-4 py-3 text-sm font-medium rounded-lg transition-colors flex items-center gap-2 w-full",
+                isLandingPage
+                  ? "text-zinc-400 hover:text-white hover:bg-white/5"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+              )}
+              aria-label={mounted && theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {mounted ? (
+                theme === "dark" ? (
+                  <>
+                    <Sun className="h-4 w-4" />
+                    Switch to Light Mode
+                  </>
+                ) : (
+                  <>
+                    <Moon className="h-4 w-4" />
+                    Switch to Dark Mode
+                  </>
+                )
+              ) : (
+                <>
+                  <Sun className="h-4 w-4" />
+                  Theme Toggle
+                </>
+              )}
+            </button>
+            
             {authLoading || profileLoading ? (
               <div className="px-4 py-3 flex items-center justify-center">
                 <div className="w-6 h-6 rounded-full bg-muted animate-pulse" />
